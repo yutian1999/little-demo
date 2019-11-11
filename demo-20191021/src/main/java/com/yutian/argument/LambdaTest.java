@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.function.DoubleToIntFunction;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -71,5 +72,29 @@ public class LambdaTest {
         String s4 = new String("123");
         System.out.println(s1== s2);
         System.out.println(s3==s4);
+
+        String intern = s1.intern();
+        System.out.println(intern);
+    }
+
+    /**
+     * 如何讲一个对象集合转换成一个字符串集合
+     */
+    @Test
+    public void test4(){
+        List<Student> list = new ArrayList<>();
+        Student s1 = new Student();
+        s1.setName("ll");
+        Student s2 = new Student();
+        s2.setName("ss");
+
+        list.add(s1);
+        list.add(s2);
+
+        List<String> collect = list.stream().map(r -> r.getName()).collect(Collectors.toList());
+
+        System.out.println(collect);
+
+
     }
 }
