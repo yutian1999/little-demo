@@ -94,7 +94,8 @@ public class LambdaTest {
         List<String> collect = list.stream().map(r -> r.getName()).collect(Collectors.toList());
 
         System.out.println(collect);
-
-
     }
-}
+
+
+
+  }
