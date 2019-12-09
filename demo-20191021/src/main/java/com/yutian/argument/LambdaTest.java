@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
-import java.util.function.DoubleToIntFunction;
 import java.util.stream.Collectors;
 
 /**
