@@ -15,29 +15,59 @@ import org.junit.Test;
  */
 public class NodeList {
 
+    /**
+     * 测试
+     */
     @Test
     public void test() {
         ListNode node = new ListNode(1);
         node.next = new ListNode(2);
         node.next.next = new ListNode(3);
-        System.out.println(node);
+        printLinked(node);
+        ListNode node1 = reverseList(node);
+        printLinked(node1);
+    }
+
+
+    /**
+     * 反转链表
+     *
+     * @param head
+     * @return
+     */
+    public ListNode reverseList(ListNode head) {
+        ListNode currNode = head;
+        ListNode preNode = null;
+        while (currNode != null) {
+            // 先取出 下一个节点 用于循转  pre - curr - next
+            ListNode nextTemp = currNode.next;
+            // 当前节点的下一个节点指向pre  curr - pre
+            currNode.next = preNode;
+            // pre -
+            preNode = currNode;
+            currNode = nextTemp;
+        }
+        return preNode;
     }
 
     /**
-     *
-     * @param listNode 1->2->3->4->5->null
-     * @return
+     * 打印链表
      */
-//    private ListNode reversList(ListNode listNode){
-//        ListNode node = listNode;
-//        while (listNode != null){
-//            listNode.next =
-//        }
-//    }
-
-
+    public void printLinked(ListNode head) {
+        ListNode node = head;
+        StringBuilder sb = new StringBuilder();
+        while (node != null) {
+            sb.append(node.val + "->");
+            node = node.next;
+        }
+        sb.append("null");
+        System.out.println(sb.toString());
+    }
 }
 
+/**
+ * 链表
+ */
 class ListNode {
 
     int val;
@@ -48,13 +78,4 @@ class ListNode {
         this.val = val;
     }
 
-    @Override
-    public String toString() {
-        String s = val + "";
-        while (next != null) {
-            s = s + "->" + next.val;
-            next = next.next;
-        }
-        return s + "-> null";
-    }
 }

@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
  * @author wengyz
  * @version SumThread.java, v 0.1 2020-01-10 20:38
  */
-public class SumThread implements Callable {
+public class SumThread implements Callable<Integer> {
 
     private List<Integer> list;
 
@@ -20,8 +20,8 @@ public class SumThread implements Callable {
     }
 
     @Override
-    public Object call() throws Exception {
-        int sum = 0;
+    public Integer call() throws Exception {
+        Integer sum = 0;
         for (Integer integer : list) {
             sum += integer;
         }
