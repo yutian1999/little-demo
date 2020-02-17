@@ -24,8 +24,8 @@ public class LinkedTest {
         linked.addFirst("4");
         linked.addFirst("5");
         linked.printLinked();
-        linked.reverse();
-        linked.delect(linked.getSize() - 3);
+//        linked.reverse();
+        linked.delect(4);
         linked.printLinked();
     }
 
