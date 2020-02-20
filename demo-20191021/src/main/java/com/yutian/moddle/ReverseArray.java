@@ -52,7 +52,6 @@ public class ReverseArray {
     }
 
     /**
-     * 动态规划
      *
      * @param nums
      * @return
@@ -79,33 +78,41 @@ public class ReverseArray {
      * if mid < nums[0]  最小值再右半部
      */
 
+    /**
+     * 二分查找
+     *
+     * @param nums
+     * @return
+     */
     public int findMinByBinary(int[] nums) {
 
         if (nums.length == 1) {
             return nums[0];
         }
 
-        int left = 0;
-        int right = nums.length;
-        int mid = (left + right) / 2;
+        if (nums[nums.length - 1] > nums[0]) {
+            return nums[0];
+        }
 
-        while (left < right) {
-            if (nums[mid] < nums[mid - 1]) {
-                return nums[mid];
-            }
+        int left = 0;
+        int right = nums.length - 1;
+        int mid;
+
+        while (left <= right) {
+            mid = (left + right) / 2;
 
             if (nums[mid] > nums[mid + 1]) {
                 return nums[mid + 1];
             }
 
-            if (nums[left] > nums[right]) {
-                left = mid + 1;
-                mid = (left + right) / 2;
+            if (nums[mid] < nums[mid - 1]) {
+                return nums[mid];
             }
 
-            if (nums[left] < nums[right]) {
+            if (nums[mid] > nums[0]) {
+                left = mid + 1;
+            }else {
                 right = mid - 1;
-                mid = (left + right) / 2;
             }
         }
         return nums[left];
@@ -146,8 +153,8 @@ public class ReverseArray {
 
     @Test
     public void testMin() {
-        int[] arr = {1, 2, 3, 4};
-        System.out.println(findMin(arr));
+        int[] arr = {2, 3, 4, 5, 1};
+        System.out.println(findMinByBinary(arr));
     }
 
 }

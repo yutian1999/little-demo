@@ -277,9 +277,87 @@ public class NodeList {
         return head;
     }
 
+    /**
+     * @param headA
+     * @param headB
+     * @return
+     */
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        Set<ListNode> set = new HashSet<>();
+        ListNode curr1 = headA;
+        while (curr1 != null) {
+            set.add(curr1);
+            curr1 = curr1.next;
+        }
+
+        ListNode curr2 = headB;
+        while (curr2 != null) {
+            if (set.contains(curr2)) {
+                return curr2;
+            }
+            curr2 = curr2.next;
+        }
+        return null;
+    }
+
+    /**
+     * 将两个链表翻转后求和
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+        return null;
+    }
+
+
+    private int value(ListNode listNode) {
+        ListNode curr = listNode;
+        String s = "";
+        while (curr != null) {
+            s += curr.val;
+            curr = curr.next;
+        }
+        return Integer.valueOf(s);
+    }
+
+    private ListNode reverse(ListNode head) {
+        ListNode curr = head;
+        ListNode pre = null;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = next;
+        }
+        return pre;
+    }
+
+    @Test
+    public void test9() {
+        ListNode l1 = new ListNode(2);
+        l1.next = new ListNode(4);
+        l1.next.next = new ListNode(3);
+
+
+        ListNode l2 = new ListNode(5);
+        l2.next = new ListNode(6);
+        l2.next.next = new ListNode(4);
+
+        ListNode listNode = addTwoNumbers(l1, l2);
+
+        while (listNode != null) {
+            System.out.print(listNode.val);
+            listNode = listNode.next;
+        }
+
+    }
+
     @Test
     public void test8() {
-        System.out.println(5 / 2);
+        System.out.println(0 % 10);
     }
 }
 
