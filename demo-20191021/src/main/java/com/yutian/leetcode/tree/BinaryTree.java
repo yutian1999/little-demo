@@ -192,6 +192,23 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 反转二叉树
+     *
+     * @param root
+     * @return
+     */
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode left = invertTree(root.leftNode);
+        TreeNode right = invertTree(root.rightNode);
+        root.rightNode = left;
+        root.leftNode = right;
+        return root;
+    }
+
 
     @Test
     public void test() {

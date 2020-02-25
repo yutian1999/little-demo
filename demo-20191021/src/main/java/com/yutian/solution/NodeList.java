@@ -381,6 +381,87 @@ public class NodeList {
         }
         return head;
     }
+
+    /**
+     * 注册表法
+     *
+     * @param head
+     * @return
+     */
+    public ListNode deleteDuplicates(ListNode head) {
+        Set<Integer> set = new HashSet();
+        ListNode curr = head;
+        set.add(curr.val);
+        while (curr != null) {
+            ListNode next = curr.next;
+            if (next == null) {
+                break;
+            }
+            if (!set.add(next.val)) {
+                curr.next = next.next;
+            } else {
+                curr = curr.next;
+            }
+        }
+        return head;
+    }
+
+    /**
+     * 向下延伸法
+     *
+     * @param head
+     * @return
+     */
+    public ListNode deleteDuplicates222(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+
+        ListNode curr = head;
+        while (curr != null && curr.next != null) {
+            ListNode next = curr.next;
+            if (curr.val == next.val) {
+                curr.next = next.next;
+            } else {
+                curr = curr.next;
+            }
+        }
+        return head;
+    }
+
+    @Test
+    public void testDel() {
+        ListNode node = new ListNode(1);
+        node.next = new ListNode(1);
+        node.next.next = new ListNode(2);
+        printLinked(node);
+        deleteDuplicates(node);
+        printLinked(node);
+    }
+
+    /**
+     * 删除链表中所有重复元素
+     *
+     * @param head
+     * @return
+     */
+    public ListNode deleteDuplicatess(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode curr = dummy;
+        while (curr.next != null && curr.next.next != null) {
+            if (curr.next.val == curr.next.next.val) {
+                ListNode temp = curr.next;
+                while (temp != null && temp.next != null && temp.next.val == temp.val) {
+                    temp = temp.next;
+                }
+                curr.next = temp.next;
+            } else {
+                curr = curr.next;
+            }
+        }
+        return dummy.next;
+    }
 }
 
 /**

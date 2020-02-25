@@ -21,6 +21,12 @@ public class FibonacclDemo {
         System.out.println(seque);
     }
 
+    /**
+     * it's shit
+     *
+     * @param n
+     * @return
+     */
     private List<Integer> createSeque(Integer n) {
         List<Integer> list = new ArrayList<>(n);
         list.add(1);
@@ -30,5 +36,37 @@ public class FibonacclDemo {
         }
 
         return list;
+    }
+
+    // 斐波那契数列 fn = fn-1 + fn-2 n > 1  f0 = 0,f1 = 1;
+
+    @Test
+    public void testFib() {
+        System.out.println(fib(6));
+    }
+
+    /**
+     * @param n
+     * @return
+     */
+    public int fib(int n) {
+        int f0 = 0;
+        int f1 = 1;
+
+        if (n == 0) {
+            return f0;
+        }
+
+        if (n == 1) {
+            return f1;
+        }
+
+        int fn = 0;
+        for (int i = 2; i <= n; i++) {
+            fn = f0 + f1;
+            f0 = f1;
+            f1 = fn;
+        }
+        return fn;
     }
 }

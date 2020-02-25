@@ -26,7 +26,7 @@ public class IsZhi {
      */
     private boolean isPrimeNum(int num) {
 
-        if (num <= 2) {
+        if (num < 2) {
             return false;
         }
 
@@ -37,4 +37,23 @@ public class IsZhi {
         }
         return true;
     }
+
+    /**
+     * 质数个数
+     * @param n
+     * @return
+     */
+//    public int countPrimes(int n) {
+//        if (n < 2){
+//            return 0;
+//        }
+//
+//        if (n == 2){
+//            return 1;
+//        }
+//        int count = 1;
+//        for (int i = 2; i <= n; i++) {
+//
+//        }
+//    }
 }
