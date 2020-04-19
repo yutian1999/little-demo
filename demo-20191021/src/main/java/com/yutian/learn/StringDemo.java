@@ -2,15 +2,15 @@
  * fshows.com
  * Copyright (C) 2013-2020 All Rights Reserved.
  */
-package com.yutian.bbt;
+package com.yutian.learn;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * @author wengyz
@@ -67,7 +67,7 @@ public class StringDemo {
             return "";
         }
 
-        Map<String, Integer> map = new TreeMap<String, Integer>();
+        Map<String, Integer> map = new HashMap<>();
 
         for (int i = 0; i < arr.length; i++) {
             if (map.containsKey(arr[i])) {

@@ -2,7 +2,7 @@
  * fshows.com
  * Copyright (C) 2013-2020 All Rights Reserved.
  */
-package com.yutian.bbt;
+package com.yutian.learn;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class StackDemo {
     // 给定一个全是小括号的字符串，为了使所有小括号配对，将两侧补充的括号输出
     @Test
     public void test() {
-        String s = "((((((((())))(()))))))()(((())))";
+        String s = "((((((((())))(()))))))((((()))))";
         String addStr = getAddStr(s);
         System.out.println(addStr);
     }
@@ -40,7 +40,7 @@ public class StackDemo {
             }
 
             if (')' == s.charAt(i)) {
-                if (!stack.empty() && '(' == stack.peek()) {
+                if (!stack.empty() && ')' == stack.peek()) {
                     // 配对成功 弹出栈顶元素
                     stack.pop();
                 } else {

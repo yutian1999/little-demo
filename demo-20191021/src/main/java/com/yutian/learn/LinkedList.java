@@ -2,7 +2,7 @@
  * fshows.com
  * Copyright (C) 2013-2020 All Rights Reserved.
  */
-package com.yutian.bbt;
+package com.yutian.learn;
 
 import org.junit.Test;
 
@@ -68,4 +68,39 @@ public class LinkedList {
         }
         return node;
     }
+
+
+    private Node delectFromEnd(Node node, int n) {
+        Node dummy = new Node(0);
+        dummy.next = node;
+
+        Node curr = node;
+        int length = 0;
+        while (curr != null) {
+            length++;
+            curr = curr.next;
+        }
+
+        length = length - n;
+        Node pre = dummy;
+        while (length > 0) {
+            length--;
+            pre = pre.next;
+        }
+        pre.next = pre.next.next;
+        return dummy.next;
+    }
+
+    @Test
+    public void test11() {
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(3);
+        print(head);
+
+        Node node = delectFromEnd(head, 2);
+        print(node);
+    }
+
+
 }

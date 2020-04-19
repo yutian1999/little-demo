@@ -2,7 +2,7 @@
  * fshows.com
  * Copyright (C) 2013-2020 All Rights Reserved.
  */
-package com.yutian.bbt;
+package com.yutian.learn;
 
 import org.junit.Test;
 

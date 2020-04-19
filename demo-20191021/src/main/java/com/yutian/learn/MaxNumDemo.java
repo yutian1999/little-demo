@@ -2,7 +2,7 @@
  * fshows.com
  * Copyright (C) 2013-2020 All Rights Reserved.
  */
-package com.yutian.bbt;
+package com.yutian.learn;
 
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class MaxNumDemo implements Comparator<String> {
     @Test
     public void test() {
         int[] arr = {23, 2, 3, 6, 43, 45, 6, 9};
-        long maxNum = getMaxNum(arr);
+        long maxNum = maxNum(arr);
         System.out.println(maxNum);
     }
 
@@ -54,4 +54,30 @@ public class MaxNumDemo implements Comparator<String> {
         String b = o2 + o1;
         return b.compareTo(a);
     }
+
+
+    public long maxNum(int[] arr) {
+        String[] str = new String[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            str[i] = String.valueOf(arr[i]);
+        }
+        Arrays.sort(str, new MyComparator());
+
+        String re = "";
+        for (int i = 0; i < str.length; i++) {
+            re += str[i];
+        }
+        return Long.valueOf(re);
+    }
+
+    class MyComparator implements Comparator<String> {
+        @Override
+        public int compare(String o1, String o2) {
+            String a = o1 + o2;
+            String b = o2 + o1;
+
+            return b.compareTo(a);
+        }
+    }
+
 }

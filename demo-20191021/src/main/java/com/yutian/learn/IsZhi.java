@@ -2,7 +2,7 @@
  * fshows.com
  * Copyright (C) 2013-2020 All Rights Reserved.
  */
-package com.yutian.bbt;
+package com.yutian.learn;
 
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ public class IsZhi {
 
     @Test
     public void test() {
-        boolean primeNum = isPrimeNum(19);
+        boolean primeNum = isPrimeNum(2);
         System.out.println(primeNum);
     }
 

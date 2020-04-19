@@ -6,6 +6,9 @@ package com.yutian.simple;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author wengyz
  * @version StringDemo.java, v 0.1 2020-02-20 15:38
@@ -74,5 +77,47 @@ public class StringDemo {
             }
         }
         return minR;
+    }
+
+    /**
+     * 寻找宝石
+     *
+     * @param J
+     * @param S
+     * @return
+     */
+    public int numJewelsInStones(String J, String S) {
+
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < J.length(); i++) {
+            set.add(J.charAt(i));
+        }
+
+        int num = 0;
+        for (int i = 0; i < S.length(); i++) {
+            if (set.contains(S.charAt(i))) {
+                num++;
+            }
+        }
+        return num;
+    }
+
+    /**
+     * 数单词
+     *
+     * @param s
+     * @return
+     */
+    public int countSegments(String s) {
+        s = s.replaceAll("\\W", ",");
+        String[] split = s.split(",");
+        return split.length;
+    }
+
+
+    @Test
+    public void test111() {
+        String s = "Hello, my name is John";
+        System.out.println(countSegments(s));
     }
 }
